@@ -1,5 +1,5 @@
 @foreach (range (1, 8) as $index)
-    <div class="border border-gray-200 rounded hover:shadow-2xl duration-500">
+    <div class="sm:mb-4 border border-gray-200 rounded hover:shadow-2xl duration-500">
         <img src="https://via.placeholder.com/400x250.png?text=Image+Post">
         <div class="px-4 py-4">
             <small class="text-gray-600 mr-2">Author, 5 March 2020</small>

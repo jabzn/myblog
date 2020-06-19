@@ -19,4 +19,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('admin', function () {
+    return redirect()->route('admin.dashboard');
+})->name('admin');
+
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+    // Dashboard
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+
+    // Post
+    Route::get('posts', 'PostsController@index')->name('posts');
+    Route::get('posts/create', 'Postscontroller@create')->name('posts.create');
+});

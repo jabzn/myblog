@@ -1,17 +1,16 @@
 <section>
     <footer class="bg-black">
-        <div class="flex justify-between text-white px-16 pt-20">
-            <div class="w-2/6 tracking-widest">
+        <div class="lg:flex lg:justify-between text-white px-16 pt-20">
+            <div class="lg:w-2/6 tracking-widest sm:mb-4">
                 <h2 class="font-bold text-xl">About Us</h2>
                 <img 
                     src="https://via.placeholder.com/400x250.png?text=Image+Post"
-                    class="py-6" 
+                    class="py-6 sm:mx-auto" 
                 >
-                <p class="text-gray-300 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
+                <p class="text-gray-300 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
             </div>
 
-            <div class="w-2/6">
+            <div class="lg:w-2/6">
                 <h2 class="font-bold text-xl tracking-widest">Lastest Post</h2>
                 @foreach (range (1,3) as $index)
                     <div class="flex justify-between items-center py-6">
@@ -27,7 +26,7 @@
                 @endforeach
             </div>
 
-            <div class="w-1/6">
+            <div class="lg:w-1/6">
                 <div>
                     <h2 class="font-bold text-xl tracking-widest">Quick Links</h2>
                     <ul class="py-6 text-lg">

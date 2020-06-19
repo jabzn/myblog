@@ -5,7 +5,7 @@
     class="w-full border border-gray-200 px-2 py-2 rounded mb-20" 
 >
 
-<div class="border border-gray-200 rounded">
+<div class="border-2 border-gray-200 rounded">
     <img src="https://via.placeholder.com/100x100.png?text=Avatar"
         class="rounded-full mx-auto border-4 border-gray-600 -mt-12 shadow-lg mb-2">
     <div class="text-center py-4 px-4">
@@ -60,7 +60,7 @@
     </ul>
 </div>
 
-<div class="mt-12">
+<div class="mt-12 sm:mb-24">
     <h2 class="font-bold text-xl">Tags</h2>
     <hr class="my-4">
     <ul>
