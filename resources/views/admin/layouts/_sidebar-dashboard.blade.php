@@ -8,7 +8,7 @@
         [
             'name'  => 'Posts',
             'route' => 'admin.posts',
-            'icon'  => '<i class="fas fa-tachometer-alt mr-2"></i>',
+            'icon'  => '<i class="fas fa-newspaper mr-2"></i>',
         ],
     ];
 @endphp

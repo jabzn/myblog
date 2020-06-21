@@ -31,11 +31,11 @@
                 </div>
 
                 <div class="w-4/6">
-                    <h1 class="font-bold text-2xl mb-2">
+                    <h1 class="font-bold text-2xl mb-4">
                         @yield('title')
                     </h1>
 
-                    <div>
+                    <div class="my-2">
                         @yield('content')
                     </div>
                 </div>

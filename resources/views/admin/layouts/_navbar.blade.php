@@ -1,6 +1,6 @@
 <nav class="bg-blue-600 shadow-lg py-4">
     <div class="container mx-auto flex justify-between items-center text-white font-bold px-16">
-        <a href="{{ url('/') }}">
+        <a href="{{ url('/') }}" class="text-2xl">
             {{ config('app.name', 'Wordify') }}
         </a>
 

@@ -1,16 +1,17 @@
 @extends('admin.layouts.app')
 
 @section('title')
-    Create Post
+    Edit Post
 @endsection
 
 @section('content')
-<form method="POST" action="{{ route('admin.posts.store') }}">
+<form action="{{ route('admin.posts.update', $post) }}" method="POST">
     @csrf
+    @method('PUT')
 
     @include('admin.posts._form')
 
-    <a href="{{ route('admin.posts') }}">
+    <a href="{{ route('admin.posts.show', $post) }}">
         <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
             Cancel <i class="fas fa-reply ml-2"></i>
         </button>
