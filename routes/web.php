@@ -35,4 +35,12 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('posts/{post}/edit', 'PostsController@edit')->name('posts.edit');
     Route::put('posts/{post}', 'PostsController@update')->name('posts.update');
     Route::delete('posts/{post}', 'PostsController@destroy')->name('posts.destroy');
+
+    // Category
+    Route::get('categories', 'CategoriesController@index')->name('categories');
+    Route::post('categories', 'CategoriesController@store')->name('categories.store');
+    Route::get('categories/{category}', 'CategoriesController@edit')->name('categories.edit');
+    Route::put('categories/{category}', 'CategoriesController@update')->name('categories.update');
+    Route::delete('categories/{category}', 'CategoriesController@destroy')
+        ->name('categories.destroy');
 });

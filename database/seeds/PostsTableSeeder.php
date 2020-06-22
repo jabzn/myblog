@@ -1,5 +1,6 @@
 <?php
 
+use App\Category;
 use App\Post;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,11 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Post::class, 20)->create();
+        factory(Category::class, 4)
+            ->create()
+            ->each(function ($category) {
+                factory(Post::class, 5)
+                    ->create(['category_id' => $category->id]);
+            });
     }
 }

@@ -32,9 +32,11 @@
                         </a>
                     </td>
                     <td class="border text-center px-1">
-                        <button>
-                            <i class="fas fa-edit fa-md"></i>
-                        </button>
+                        <a href="{{ route('admin.posts.edit', $post) }}">
+                            <button>
+                                <i class="fas fa-edit fa-md"></i>
+                            </button>
+                        </a>
                     </td>
                     <td class="border text-center px-1 bg-red-500 text-white">
                         <form action="{{ route('admin.posts.destroy', $post) }}" method="POST">

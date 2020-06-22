@@ -10,6 +10,11 @@
             'route' => 'admin.posts',
             'icon'  => '<i class="fas fa-newspaper mr-2"></i>',
         ],
+        [
+            'name'  => 'Categories',
+            'route' => 'admin.categories',
+            'icon'  => '<i class="fas fa-newspaper mr-2"></i>',
+        ]
     ];
 @endphp
 
