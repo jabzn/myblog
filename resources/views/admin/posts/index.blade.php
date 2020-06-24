@@ -11,7 +11,7 @@
         </button>
     </a>
 
-    <table class="table-auto">
+    <table class="table-auto text-lg">
         <thead>
             <tr class="bg-blue-600 text-white text-lg">
                 <th class="py-2 px-2">No</th>
@@ -42,7 +42,10 @@
                         <form action="{{ route('admin.posts.destroy', $post) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" onclick="return confirm('Are you sure you want to delete this post?')">
+                            <button 
+                                type="submit" 
+                                onclick="return confirm('Are you sure you want to delete this post?')"
+                            >
                                 <i class="fas fa-trash-alt fa-md"></i>
                             </button>
                         </form>

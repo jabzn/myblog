@@ -13,8 +13,13 @@
         [
             'name'  => 'Categories',
             'route' => 'admin.categories',
-            'icon'  => '<i class="fas fa-newspaper mr-2"></i>',
-        ]
+            'icon'  => '<i class="fas fa-list mr-2"></i>',
+        ],
+        [
+            'name'  => 'Tags',
+            'route' => 'admin.tags',
+            'icon'  => '<i class="fas fa-tags mr-2"></i>',
+        ],
     ];
 @endphp
 

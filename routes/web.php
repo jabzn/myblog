@@ -43,4 +43,10 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::put('categories/{category}', 'CategoriesController@update')->name('categories.update');
     Route::delete('categories/{category}', 'CategoriesController@destroy')
         ->name('categories.destroy');
+
+    // Tags
+    Route::get('tags', 'TagsController@index')->name('tags');
+    Route::get('tags/{tag}', 'TagsController@edit')->name('tags.edit');
+    Route::put('tags/{tag}', 'TagsController@update')->name('tags.update');
+    Route::delete('tags/{tag}', 'TagsController@destroy')->name('tags.destroy');
 });

@@ -15,6 +15,16 @@
             <dt class="w-1/4 font-bold">Category</dt>
             <dd class="w-3/4 text-justify capitalize">{{ $post->category->name }}</dd>
         </div>
+        <div class="flex justify-between mb-4">
+            <dt class="w-1/4 font-bold">Tags</dt>
+            <dd class="w-3/4 capitalize">
+                <ul>
+                    @foreach ($post->tags as $tag)
+                        <li class="float-left bg-gray-200 px-4 px-2 mr-1 mb-1 rounded-lg">{{ $tag->name }}</li>
+                    @endforeach
+                </ul>
+            </dd>
+        </div>
         <div class="flex justify-between">
             <dt class="w-1/4 font-bold">Content</dt>
             <dt class="w-3/4 text-justify">{{ $post->body }}</dt>

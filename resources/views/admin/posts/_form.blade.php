@@ -31,11 +31,29 @@
             <option value="{{ $category->id }}" {{ old('category_id', $post->category_id) == $category->id ? 'selected' : '' }}>
                 {{ $category->name }}
             </option>
-
         @endforeach
     </select> 
 
     @error('category_id')
+        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+    @enderror
+</div>
+
+<div class="mb-6">
+    <label class="block mb-2 capitalize font-bold text-lg text-gray-700"
+           for="tags"
+    >
+        tags
+    </label>
+
+    <input class="border border-gray-400 p-2 w-full rounded-lg"
+           type="text"
+           name="tags"
+           id="tags"
+           value="{{ old('tags', $post->tags->pluck('name')) }}" 
+    >
+
+    @error('tags')
         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
     @enderror
 </div>

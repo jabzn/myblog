@@ -11,7 +11,7 @@
 
     @include('admin.posts._form')
 
-    <a href="{{ route('admin.posts.show', $post) }}">
+    <a href="{{ url()->previous() }}">
         <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
             Cancel <i class="fas fa-reply ml-2"></i>
         </button>

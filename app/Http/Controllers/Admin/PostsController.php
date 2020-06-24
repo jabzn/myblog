@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatePostRequest;
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -22,11 +23,11 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(10);
+        $posts = Post::with('category', 'tags')
+            ->paginate(10);
 
-        return view('admin.posts.index', [
-            'posts' => $posts,
-        ]);
+        return view('admin.posts.index', 
+            compact('posts'));
     }
 
     /**
@@ -39,10 +40,8 @@ class PostsController extends Controller
         $post = new Post;
         $categories = Category::all();
 
-        return view('admin.posts.create', [
-            'post'       => $post,
-            'categories' => $categories
-        ]);
+        return view('admin.posts.create', 
+            compact('post', 'categories'));
     }
 
     /**
@@ -58,6 +57,18 @@ class PostsController extends Controller
 
         $post = Post::create($validatedData);
 
+        if ($post) {
+            $tagNames = explode(',', $request->get('tags'));
+            $tagIds   = [];
+            foreach($tagNames as $tagName) {
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                if ($tag) {
+                    $tagIds[] = $tag->id;
+                }
+            }
+            $post->tags()->sync($tagIds);
+        }
+
         return redirect()->route('admin.posts.show', $post);
     }
 
@@ -69,9 +80,8 @@ class PostsController extends Controller
      */
     public function show(Post $post)
     {
-        return view('admin.posts.show', [
-            'post' => $post,
-        ]);
+        return view('admin.posts.show', 
+            compact('post'));
     }
 
     /**
@@ -84,10 +94,8 @@ class PostsController extends Controller
     {
         $categories = Category::all();
         
-        return view('admin.posts.edit', [
-            'post'       => $post,
-            'categories' => $categories
-        ]);
+        return view('admin.posts.edit', 
+            compact('post', 'categories'));
     }
 
     /**
