@@ -55,8 +55,16 @@ class PostsController extends Controller
         $validatedData         = $request->validated();
         $validatedData['slug'] = Str::slug($validatedData['title'], '-');
 
+        if ($request->file('image')) {
+            $image     = $request->file('image');
+            $fileName  = $image->getClientOriginalName();
+            $path      = $request->file('image')->storeAs('images', $fileName, 'public');
+            $validatedData['image'] = $fileName;
+        }
+
         $post = Post::create($validatedData);
 
+        //  I'm gonna make it clean this, later! After i learned about Vue.Js!
         if ($post) {
             $tagNames = explode(',', $request->get('tags'));
             $tagIds   = [];
@@ -110,7 +118,26 @@ class PostsController extends Controller
         $editedPost         = $request->validated();
         $editedPost['slug'] = Str::slug($editedPost['title'], '-');
 
+        if ($request->file('image')) {
+            $image     = $request->file('image');
+            $fileName  = $image->getClientOriginalName();
+            $path      = $request->file('image')->storeAs('images', $fileName, 'public');
+            $editedPost['image'] = $fileName;
+        }
+
         $post->update($editedPost);
+
+        if ($post) {
+            $tagNames = explode(',', $request->get('tags'));
+            $tagIds   = [];
+            foreach($tagNames as $tagName) {
+                $tag = Tag::firstOrCreate(['name' => $tagName]);
+                if ($tag) {
+                    $tagIds[] = $tag->id;
+                }
+            }
+            $post->tags()->sync($tagIds);
+        }
         
         return redirect()->route('admin.posts.show', $post);
     }

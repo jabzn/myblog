@@ -10,10 +10,18 @@ class Post extends Model
 {
     protected $fillable = [
         'title',
+        'image',
         'category_id',
         'slug',
         'body',
     ];
+
+    public function getImageAttribute($value)
+    {
+        return $value 
+            ? asset('storage/' . 'images/' . $value) 
+            : asset('storage/images/no-image.jpg');
+    }
 
     public function category()
     {

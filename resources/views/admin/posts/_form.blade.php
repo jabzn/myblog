@@ -20,6 +20,29 @@
 
 <div class="mb-6">
     <label class="block mb-2 capitalize font-bold text-lg text-gray-700"
+           for="image"
+    >
+        image
+    </label>
+
+    <img src="{{ $post->image }}"
+         class="mb-4" 
+         width="300px" 
+    >
+
+    <input class="border border-gray-400 p-2 w-full rounded-lg @error('image') is-invalid @enderror"
+           type="file"
+           name="image"
+           id="image"
+    >
+
+    @error('image')
+        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+    @enderror
+</div>
+
+<div class="mb-6">
+    <label class="block mb-2 capitalize font-bold text-lg text-gray-700"
            for="category_id"
     >
         Category

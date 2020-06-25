@@ -11,6 +11,7 @@
         </button>
     </a>
 
+    @if ($post)
     <table class="table-auto text-lg">
         <thead>
             <tr class="bg-blue-600 text-white text-lg">
@@ -20,7 +21,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($posts as $post)
+            @forelse ($posts as $post)
                 <tr>
                     <td class="border py-2 px-2 text-center">{{ $post->id }}</td>
                     <td class="border py-2 px-2">{{ $post->title }}</td>
@@ -51,9 +52,16 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+            @empty
+                <tr>
+                    <td></td>
+                    <td class="text-center py-4">There's no post! Let's create one!</td>
+                    <td></td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
+    @endif
 
     <div class="bg-gray-200 px-20">
         {{ $posts->links() }}

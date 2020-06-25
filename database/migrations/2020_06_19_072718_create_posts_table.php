@@ -17,6 +17,7 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->foreignId('category_id');
             $table->string('title');
+            $table->text('image')->nullable();
             $table->string('slug');
             $table->text('body');
             $table->timestamps();

@@ -12,6 +12,14 @@
             <dd class="w-3/4 text-justify capitalize">{{ $post->title }}</dd>
         </div>
         <div class="flex justify-between mb-4">
+            <dt class="w-1/4 font-bold">Image</dt>
+            <dd class="w-3/4 text-justify capitalize">
+                <img src="{{ $post->image }}"
+                     width="300px" 
+                >
+            </dd>
+        </div>
+        <div class="flex justify-between mb-4">
             <dt class="w-1/4 font-bold">Category</dt>
             <dd class="w-3/4 text-justify capitalize">{{ $post->category->name }}</dd>
         </div>

@@ -26,6 +26,7 @@ class CreatePostRequest extends FormRequest
         return [
             'category_id' => 'required',
             'title'       => 'required|max:255',
+            'image'       => 'image|nullable',
             'body'        => 'required'
         ];
     }

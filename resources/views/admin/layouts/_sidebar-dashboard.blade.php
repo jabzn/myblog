@@ -23,7 +23,7 @@
     ];
 @endphp
 
-<div class="mr-10 shadow-lg py-2 pl-4 border border-gray-400 rounded-lg text-lg">
+<div class="mr-10 shadow-lg py-2 pl-4 border border-gray-400 rounded-lg text-md">
     <ul>
         @foreach ($menu as $item)
             <li class="py-2 {{ $loop->last ? '' : 'border-b border-gray-400' }}">

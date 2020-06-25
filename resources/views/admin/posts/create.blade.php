@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<form method="POST" action="{{ route('admin.posts.store') }}">
+<form method="POST" action="{{ route('admin.posts.store') }}" enctype="multipart/form-data">
     @csrf
 
     @include('admin.posts._form')
