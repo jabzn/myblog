@@ -23,10 +23,10 @@
     ];
 @endphp
 
-<div class="mr-10 shadow-lg py-2 pl-4 border border-gray-400 rounded-lg text-md">
+<div class="py-2 pl-4 bg-blue-600 text-md text-white mt-16 fixed w-56 h-full">
     <ul>
         @foreach ($menu as $item)
-            <li class="py-2 {{ $loop->last ? '' : 'border-b border-gray-400' }}">
+            <li class="py-2">
                 <a href="{{ route($item['route']) }}" class="{{ (request()->segment(2) == $item['name']) ? 'active:bg-blue-500' : '' }}">
                     {!! $item['icon'] !!} {{ ucfirst($item['name']) }}
                 </a>

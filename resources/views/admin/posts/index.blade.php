@@ -11,7 +11,6 @@
         </button>
     </a>
 
-    @if ($post)
     <table class="table-auto text-lg">
         <thead>
             <tr class="bg-blue-600 text-white text-lg">
@@ -61,7 +60,6 @@
             @endforelse
         </tbody>
     </table>
-    @endif
 
     <div class="bg-gray-200 px-20">
         {{ $posts->links() }}

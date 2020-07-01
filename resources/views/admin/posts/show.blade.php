@@ -35,7 +35,7 @@
         </div>
         <div class="flex justify-between">
             <dt class="w-1/4 font-bold">Content</dt>
-            <dt class="w-3/4 text-justify">{{ $post->body }}</dt>
+            <dt class="w-3/4 text-justify">{!! $post->body !!}</dt>
         </div>
     </dl>
 

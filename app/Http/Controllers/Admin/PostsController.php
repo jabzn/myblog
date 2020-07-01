@@ -24,7 +24,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::with('category', 'tags')
-            ->paginate(10);
+            ->paginate(9);
 
         return view('admin.posts.index', 
             compact('posts'));
@@ -56,8 +56,7 @@ class PostsController extends Controller
         $validatedData['slug'] = Str::slug($validatedData['title'], '-');
 
         if ($request->file('image')) {
-            $image     = $request->file('image');
-            $fileName  = $image->getClientOriginalName();
+            $fileName  = $request->file('image')->getClientOriginalName();
             $path      = $request->file('image')->storeAs('images', $fileName, 'public');
             $validatedData['image'] = $fileName;
         }
@@ -99,7 +98,7 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
-    {
+    { 
         $categories = Category::all();
         
         return view('admin.posts.edit', 
@@ -119,8 +118,7 @@ class PostsController extends Controller
         $editedPost['slug'] = Str::slug($editedPost['title'], '-');
 
         if ($request->file('image')) {
-            $image     = $request->file('image');
-            $fileName  = $image->getClientOriginalName();
+            $fileName  = $request->file('image')->getClientOriginalName();
             $path      = $request->file('image')->storeAs('images', $fileName, 'public');
             $editedPost['image'] = $fileName;
         }

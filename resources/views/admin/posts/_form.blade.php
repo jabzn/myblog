@@ -69,12 +69,14 @@
         tags
     </label>
 
+    <small>Add "," as a Separator</small>
+
     <input class="border border-gray-400 p-2 w-full rounded-lg"
            type="text"
            name="tags"
            id="tags"
-           value="{{ old('tags', $post->tags->pluck('name')) }}" 
-    >
+           value="{{ old('tags', implode(',', $post->tags->pluck('name'))) }}" 
+     >
 
     @error('tags')
         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
@@ -95,6 +97,9 @@
         rows="10" 
         required
     >{{ old('body', $post->body) }}</textarea>
+    <script>
+        CKEDITOR.replace('body');
+    </script>
 
     @error('body')
         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>

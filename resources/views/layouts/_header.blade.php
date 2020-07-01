@@ -1,7 +1,7 @@
 <section>
     <header>
         <div class="flex justify-between py-3 px-16 bg-blue-600 items-center">
-            <div>
+            <div class="text-white">
                 <a href="#">
                     <i class="fab fa-facebook-f mr-4"></i>
                 </a>
@@ -20,7 +20,7 @@
                     placeholder="Type keyword to search ..."
                     class="px-2 py-1 w-64 rounded mr-2">
 
-                <i class="fab fa-search"></i>
+                <i class="fas fa-search text-white"></i>
             </div>
         </div>
 

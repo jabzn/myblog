@@ -12,6 +12,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/2a2d3304a4.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -24,14 +25,14 @@
     <div id="app">
         @include('admin.layouts._navbar')
 
-        <main class="my-6">
-            <div class="container mx-auto px-16 flex justify-between">
-                <div class="w-2/6">
+        <main>
+            <div class="flex justify-between">
+                <div class="w-1/6">
                     @include('admin.layouts._sidebar-dashboard')
                 </div>
 
-                <div class="w-4/6">
-                    <h1 class="font-bold text-2xl mb-4">
+                <div class="w-5/6 px-10 mt-16 mb-6">
+                    <h1 class="font-bold text-2xl my-4">
                         @yield('title')
                     </h1>
 

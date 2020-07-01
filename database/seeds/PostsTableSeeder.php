@@ -20,7 +20,10 @@ class PostsTableSeeder extends Seeder
             ->create()
             ->each(function ($category) {
                 factory(Post::class, rand(1, 5))
-                    ->create(['category_id' => $category->id]);
+                    ->create([
+                        'category_id' => $category->id,
+                        'image'       => 'aerojel-silika-ilustrasi-_160303141114-778.jpg'
+                    ]);
             });
 
         $tags = Tag::all();
