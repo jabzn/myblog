@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@index')->name('home');
+Route::get('posts/{post:slug}', 'PagesController@show')->name('post');
+Route::get('category/{category:name}', 'PagesController@showPostsbyCategory')->name('category');
+Route::get('tags/{tag:name}', 'PagesController@showPostsbyTag')->name('tag');
+Route::get('about', 'PagesController@about')->name('about');
+Route::get('contact', 'PagesController@contact')->name('contact');
+Route::post('search', 'PagesController@search')->name('search');
 
 Auth::routes();
 

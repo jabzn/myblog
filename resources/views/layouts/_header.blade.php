@@ -30,12 +30,16 @@
 
         <nav class="flex lg:justify-center">
             <ul class="lg:flex uppercase font-bold sm:mx-4">
-                <li class="mr-6">Home</li>
-                <li class="mr-6">Bussiness</li>
-                <li class="mr-6">Travel</li>
+                <a href="{{ route('home') }}">
+                    <li class="mr-6 hover:text-blue-400 duration-150">Home</li>
+                </a>
                 <li class="mr-6">Categories</li>
-                <li class="mr-6">About</li>
-                <li class="mr-6">Contact</li>
+                <a href="{{ route('about') }}">
+                    <li class="mr-6 hover:text-blue-400 duration-150">About</li>
+                </a>
+                <a href="{{ route('contact') }}">
+                    <li class="mr-6 hover:text-blue-400 duration-150">Contact</li>
+                </a>
             </ul>
         </nav>
 

@@ -4,22 +4,26 @@
             <div class="lg:w-2/6 tracking-widest sm:mb-4">
                 <h2 class="font-bold text-xl">About Us</h2>
                 <img 
-                    src="https://via.placeholder.com/400x250.png?text=Image+Post"
+                    src="https://via.placeholder.com/400x250.png?text=About+Us"
                     class="py-6 sm:mx-auto" 
                 >
                 <p class="text-gray-300 leading-relaxed">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
             </div>
 
             <div class="lg:w-2/6">
-                <h2 class="font-bold text-xl tracking-widest">Lastest Post</h2>
-                @foreach (range (1,3) as $index)
+                <h2 class="font-bold text-xl tracking-widest">Latest Post</h2>
+                @foreach ($postsOnFooter as $post)
                     <div class="flex justify-between items-center py-6">
-                        <div>
-                            <img src="https://via.placeholder.com/170x100.png?text=Image+Post">
+                        <div class="w-1/3">
+                            <a href="{{ route('post', $post) }}">
+                                <img src="{{ $post->image }}">
+                            </a>
                         </div>
-                        <div class="px-4">
-                            <h3>How to Find the Video Games of Your Youth</h3>
-                            <small class="text-gray-600 mr-2">Author, 5 March 2020 . 
+                        <div class="w-2/3 px-4">
+                            <a href="{{ route('post', $post) }}">
+                                <h3 class="capitalize">{{ $post->title }}</h3>
+                            </a>
+                            <small class="text-gray-600 mr-2">{{ $post->created_at->toFormattedDateString() }} 
                                 <i class="fab fa-comments"></i> 5</small>
                         </div>
                     </div>

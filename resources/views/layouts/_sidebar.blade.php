@@ -34,14 +34,18 @@
 <div class="mt-12">
     <h2 class="font-bold text-xl">Popular Posts</h2>
     <hr class="my-4">
-    @foreach (range (1, 3) as $index)
+    @foreach ($popularPosts as $post)
         <div class="flex justify-between items-center mb-12">
-            <div>
-                <img src="https://via.placeholder.com/140x110.png?text=thumbnail">
+            <div class="w-1/3">
+                <a href="{{ route('post', $post) }}">  
+                    <img src="{{ $post->image }}">
+                </a>
             </div>
-            <div class="pl-4 text-justify">
-                <h3 class="font-bold py-2">How to Find the Video Games for Your Youth</h3>
-                <small class="text-gray-600">March 5, 2020</small>
+            <div class="w-2/3 pl-4 text-justify">
+                <a href="{{ route('post', $post) }}">
+                    <h3 class="font-bold py-2 capitalize text-base">{{ $post->title }}</h3>
+                </a>
+                <small class="text-gray-600">{{ $post->created_at->toFormattedDateString() }}</small>
             </div>
         </div>
     @endforeach
@@ -51,10 +55,10 @@
     <h2 class="font-bold text-xl">Categories</h2>
     <hr class="my-4">
     <ul>
-        @foreach (range (1,5) as $index)
+        @foreach ($categories as $category)
             <li 
-                class="{{ $loop->last ? '' : 'border-dotted border-b border-gray-200'}} py-2 text-xl">
-                <a href="#">Travel</a>
+                class="{{ $loop->last ? '' : 'border-dotted border-b border-gray-200'}} py-2 text-xl capitalize">
+                <a href="{{ route('category', $category) }}">{{ $category->name }}</a>
             </li>
         @endforeach
     </ul>
@@ -64,12 +68,12 @@
     <h2 class="font-bold text-xl">Tags</h2>
     <hr class="my-4">
     <ul>
-        @foreach (range (1, 9) as $index)
-            <a href="#">
+        @foreach ($tags as $tag)
+            <a href="{{ route('tag', $tag) }}">
                 <li 
                     class="float-left bg-gray-200 px-4 px-2 mr-1 mb-1 rounded-lg hover:bg-gray-400 duration-500"
                 >
-                    Tags
+                    {{ $tag->name }}
                 </li>
             </a>
         @endforeach
