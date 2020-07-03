@@ -15,9 +15,11 @@
         quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.</p>
     </div>
-    <button class="block mx-auto bg-blue-500 hover:bg-blue-700 duration-500 text-white font-bold py-2 px-4 border border-blue-700 rounded my-4">
-        Read my bio
-    </button>
+    <a href="{{ route('about') }}">
+        <button class="block mx-auto bg-blue-500 hover:bg-blue-700 duration-500 text-white font-bold py-2 px-4 border border-blue-700 rounded my-4">
+            Read my bio
+        </button>
+    </a>
     <div class="flex justify-center mb-4">
         <a href="#">
             <i class="fab fa-facebook-f mr-6"></i>

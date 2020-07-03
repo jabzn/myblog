@@ -21,10 +21,14 @@
                         </div>
                         <div class="w-2/3 px-4">
                             <a href="{{ route('post', $post) }}">
-                                <h3 class="capitalize">{{ $post->title }}</h3>
+                                <h3 class="capitalize hover:text-blue-400 duration-150">
+                                    {{ $post->title }}
+                                </h3>
                             </a>
-                            <small class="text-gray-600 mr-2">{{ $post->created_at->toFormattedDateString() }} 
-                                <i class="fab fa-comments"></i> 5</small>
+                            <small class="text-gray-600 mr-2">
+                                {{ $post->created_at->toFormattedDateString() }} 
+                                <i class="fab fa-comments"></i> 5
+                            </small>
                         </div>
                     </div>
                 @endforeach
@@ -34,11 +38,11 @@
                 <div>
                     <h2 class="font-bold text-xl tracking-widest">Quick Links</h2>
                     <ul class="py-6 text-lg">
-                        <li class="mb-2">About us</li>
-                        <li class="mb-2">Travel</li>
-                        <li class="mb-2">Adventure</li>
-                        <li class="mb-2">Courses</li>
-                        <li class="mb-2">Categories</li>
+                        <li class="mb-2 hover:text-blue-400 duration-150">About us</li>
+                        <li class="mb-2 hover:text-blue-400 duration-150">Travel</li>
+                        <li class="mb-2 hover:text-blue-400 duration-150">Adventure</li>
+                        <li class="mb-2 hover:text-blue-400 duration-150">Courses</li>
+                        <li class="mb-2 hover:text-blue-400 duration-150">Categories</li>
                     </ul>
                 </div>
 

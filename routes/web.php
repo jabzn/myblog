@@ -19,7 +19,7 @@ Route::get('category/{category:name}', 'PagesController@showPostsbyCategory')->n
 Route::get('tags/{tag:name}', 'PagesController@showPostsbyTag')->name('tag');
 Route::get('about', 'PagesController@about')->name('about');
 Route::get('contact', 'PagesController@contact')->name('contact');
-Route::post('search', 'PagesController@search')->name('search');
+Route::get('search', 'PagesController@search')->name('search');
 
 Auth::routes();
 

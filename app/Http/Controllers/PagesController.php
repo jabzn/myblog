@@ -32,6 +32,7 @@ class PagesController extends Controller
     public function show(Post $post)
     {
         $post->load('category', 'tags');
+
         $related = Post::whereHas('tags', function ($query) use ($post) {
             return $query->whereIn('name', $post->tags->pluck('name'));
         })
@@ -47,7 +48,7 @@ class PagesController extends Controller
 
     public function showPostsByCategory(Category $category)
     {
-        $category->load('posts');
+        $category->load('posts')->paginate(8);
 
         return view('posts.show-category', [
             'category' => $category
@@ -56,10 +57,22 @@ class PagesController extends Controller
 
     public function showPostsbyTag(Tag $tag)
     {
-        $tag->load('posts');
+        $tag->load('posts')->paginate(8);
 
         return view('posts.show-tag', [
             'tag' => $tag
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        $search = $request->search;
+
+        $posts = Post::where('title', 'like', "%" . $search . "%")
+            ->paginate(10);
+
+        return view('search-result', [
+            'posts' => $posts
         ]);
     }
 
